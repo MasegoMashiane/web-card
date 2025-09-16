@@ -2,14 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> Masego's Creative Code Adventures</title>
+  <title>Masego's Creative Code Adventures</title>
   <link rel="stylesheet" href="styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="favicon.png">
-
 </head>
 <body>
+  <!-- Sound Shortcuts Modal -->
+  <div class="modal-overlay" id="soundShortcutsModal">
+    <div class="sound-shortcuts">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h3>☕ Coffee Sound Shortcuts</h3>
+      <div class="shortcut-item">
+        <span>Brew Coffee Sound</span>
+        <div class="shortcut-keys">
+          <kbd>Ctrl</kbd> + <kbd>B</kbd>
+        </div>
+      </div>
+      <div class="shortcut-item">
+        <span>Sip Coffee Sound</span>
+        <div class="shortcut-keys">
+          <kbd>Ctrl</kbd> + <kbd>S</kbd>
+        </div>
+      </div>
+      <div class="shortcut-item">
+        <span>Pour Coffee Sound</span>
+        <div class="shortcut-keys">
+          <kbd>Ctrl</kbd> + <kbd>P</kbd>
+        </div>
+      </div>
+      <div class="shortcut-item">
+        <span>Debug with Coffee (Game)</span>
+        <div class="shortcut-keys">
+          <kbd>Space</kbd>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Enhanced coffee stains and ink blots -->
   <div class="ink-blot ink-blot-1"></div>
   <div class="ink-blot ink-blot-2"></div>
@@ -28,7 +59,16 @@
       </div>
     </div>
 
-    <img src="assets/frame0000-Photoroom.png" alt="smiling drawing" height="150" width="150" id="Drawing">
+    <!-- Speech Bubble -->
+    <div class="speech-bubble" id="speechBubble">
+      <div class="bubble-content">
+        <p>Click me to see sound shortcuts!</p>
+        <div class="bubble-arrow"></div>
+      </div>
+    </div>
+
+    <!-- Drawing with Sound Shortcut -->
+    <img src="assets/frame0000-Photoroom.png" alt="smiling drawing" height="150" width="150" id="Drawing" title="Click for sound shortcuts">
 
     <div id="reveal">
       <div class="avatar-doodle">
@@ -73,5 +113,78 @@
 
   <script src="index.js"></script>
   <script src="spriteanimator.js"></script>
+  <script>
+    // Sound shortcuts modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const drawing = document.getElementById('Drawing');
+      const modal = document.getElementById('soundShortcutsModal');
+      const closeBtn = document.getElementById('closeModal');
+      
+      // Toggle modal when drawing is clicked
+      drawing.addEventListener('click', function() {
+        modal.classList.toggle('active');
+        // Prevent body from scrolling when modal is open
+        document.body.style.overflow = modal.classList.contains('active') ? 'hidden' : '';
+      });
+      
+      // Close modal when clicking the close button
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Close modal when clicking outside the modal content
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+      
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+      
+      // Handle keyboard shortcuts
+      document.addEventListener('keydown', function(e) {
+        // Only process if modal is not open
+        if (!modal.classList.contains('active')) {
+          switch(e.key.toLowerCase()) {
+            case 'b':
+              if (e.ctrlKey) {
+                // Brew coffee sound
+                console.log('Brew coffee sound');
+                // Add your brew coffee sound logic here
+              }
+              break;
+            case 's':
+              if (e.ctrlKey) {
+                // Sip coffee sound
+                console.log('Sip coffee sound');
+                // Add your sip coffee sound logic here
+              }
+              break;
+            case 'p':
+              if (e.ctrlKey) {
+                // Pour coffee sound
+                console.log('Pour coffee sound');
+                // Add your pour coffee sound logic here
+              }
+              break;
+            case ' ':
+              // Debug with coffee (Game)
+              console.log('Debug with coffee (Game)');
+              // Add your debug with coffee logic here
+              break;
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>

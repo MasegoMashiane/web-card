@@ -607,7 +607,7 @@
         bug.isAngry = true;
         bug.hp = Math.max(0, bug.hp - 25);
         
-        // Create impact effects with masculine symbols
+        // impact effects 
         for (let i = 0; i < 15; i++) {
           sparkles.push({
             x: bug.x + (Math.random() - 0.5) * 80,
@@ -640,7 +640,11 @@
           }
           
           setTimeout(() => {
+            const speechBubble = document.getElementById('speechBubble')
+            const animation = document.getElementById('Drawing')
             revealSection.style.display = "flex";
+            speechBubble.style.display = 'none'
+            animation.style.display = 'none'
           }, 2500);
         }
       }, 600);
