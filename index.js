@@ -627,7 +627,7 @@
           instruction.textContent = "System optimized! Welcome to my dev workspace! 🚀";
           createSpeechBubble(developer, "Perfect! Time for victory coffee!");
           
-          // Massive victory celebration with masculine symbols
+          // Massive victory celebration 
           for (let i = 0; i < 30; i++) {
             sparkles.push({
               x: canvas.width / 2,
