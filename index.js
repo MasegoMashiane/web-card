@@ -907,27 +907,6 @@
       }
     });
 
-    // Seasonal easter egg with masculine theme
-    const currentMonth = new Date().getMonth();
-    if (currentMonth === 11 || currentMonth === 0) { // December or January
-      // Add some winter tech sparkle
-      const winterDoodles = ['❄️', '⚡', '🔧', '⭐'];
-      setInterval(() => {
-        if (Math.random() < 0.08) {
-          const sparkle = document.createElement('div');
-          sparkle.className = 'mouse-trail';
-          sparkle.textContent = winterDoodles[Math.floor(Math.random() * winterDoodles.length)];
-          sparkle.style.left = Math.random() * window.innerWidth + 'px';
-          sparkle.style.top = '0px';
-          sparkle.style.fontSize = '20px';
-          sparkle.style.color = '#4682B4';
-          document.body.appendChild(sparkle);
-          
-          setTimeout(() => sparkle.remove(), 3000);
-        }
-      }, 2500);
-    }
-
     // Coffee break reminder (fun easter egg)
     let coffeeBreakTimer;
     function startCoffeeBreakReminder() {
@@ -956,7 +935,7 @@
           setTimeout(() => reminder.remove(), 4000);
         }
         startCoffeeBreakReminder(); // Restart timer
-      }, 12000 + Math.random() * 18000); // 2-5 minutes
+      }, 120000 + Math.random() * 18000); // 2-5 minutes
     }
     
     // Add CSS for fade animation
