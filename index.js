@@ -935,7 +935,7 @@
           setTimeout(() => reminder.remove(), 4000);
         }
         startCoffeeBreakReminder(); // Restart timer
-      }, 120000 + Math.random() * 18000); // 2-5 minutes
+      }, 12500 + Math.random() * 18500); 
     }
     
     // Add CSS for fade animation

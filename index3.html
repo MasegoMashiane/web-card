@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
   <!-- Sound Shortcuts Modal -->
@@ -68,7 +67,7 @@
     </div>
 
     <!-- Drawing with Sound Shortcut -->
-    <img src="assets/frame0000-Photoroom.png" alt="smiling drawing" height="150" width="150" id="Drawing" title="Click for sound shortcuts">
+    <img src="assets/frame0000-removebg-preview.png" alt="smiling drawing" height="150" width="150" id="Drawing" title="Click for sound shortcuts">
 
     <div id="reveal">
       <div class="avatar-doodle">
@@ -159,27 +158,27 @@
               if (e.ctrlKey) {
                 // Brew coffee sound
                 console.log('Brew coffee sound');
-                // Add your brew coffee sound logic here
+                
               }
               break;
             case 's':
               if (e.ctrlKey) {
                 // Sip coffee sound
                 console.log('Sip coffee sound');
-                // Add your sip coffee sound logic here
+                playCoffeeSipSound()
               }
               break;
             case 'p':
               if (e.ctrlKey) {
                 // Pour coffee sound
                 console.log('Pour coffee sound');
-                // Add your pour coffee sound logic here
+                playCoffeePourSound()
               }
               break;
             case ' ':
               // Debug with coffee (Game)
               console.log('Debug with coffee (Game)');
-              // Add your debug with coffee logic here
+              playCoffeeBrewSound()
               break;
           }
         }
