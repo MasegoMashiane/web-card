@@ -34,7 +34,7 @@ stop(){
 }
 
 
-const animationFrames = ["assets/frame0000-Photoroom.png", "assets/frame0001-removebg-preview.png"]
+const animationFrames = ["assets/frame0000-removebg-preview.png","assets/frame0001-removebg-preview.png", "assets/frame0002-removebg-preview.png"]
 const imgElement = document.getElementById("Drawing")
-const animator = new SpriteAnimator(imgElement, animationFrames, 1300, true)
+const animator = new SpriteAnimator(imgElement, animationFrames, 600, true)
 animator.play()
