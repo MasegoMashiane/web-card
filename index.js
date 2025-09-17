@@ -112,7 +112,7 @@
     }
     
     function playMagicSound() {
-      // Deeper, more masculine magical chime sequence
+      // Deeper, magical chime sequence
       playCoffeeBrewSound();
       setTimeout(() => {
         playSound(392, 0.2); // G4
@@ -137,37 +137,61 @@
       playSound(frequencies[Math.floor(Math.random() * frequencies.length)], 0.1, 'square');
     }
 
-    // Mouse trail effect with masculine symbols
+    // Mouse trail effect with 
     let mouseTrails = [];
-    const trailSymbols = ['⚡', '🔧', '💻', '⭐', '◆', '◈', '▲', '■'];
+    const trailSprites = [
+      'Sprites/laserBlue10-ezgif.com-resize.png',
+      'Sprites/laserRed08-ezgif.com-resize.png',
+      'Sprites/playerShip2_green-ezgif.com-resize.png',
+      'Sprites/starGold-ezgif.com-resize.png',
+      'Sprites/Scribbles/item_gun-ezgif.com-resize.png',
+      'Sprites/Scribbles/item_hat-ezgif.com-resize.png',
+      'Sprites/Scribbles/item_helmetModern-ezgif.com-resize.png',
+      'Sprites/Scribbles/item_pencil-ezgif.com-resize.png',
+      'Sprites/Scribbles/item_sword-ezgif.com-resize.png',
+      'Sprites/Scribbles/tile_cog-ezgif.com-resize.png'
+  ];
     
     document.addEventListener('mousemove', (e) => {
-      if (Math.random() < 0.3) { // Only create trail 30% of the time
-        const trail = document.createElement('div');
+      if (Math.random() < 0.3) {
+        const trail = document.createElement('img');
         trail.className = 'mouse-trail';
-        trail.textContent = trailSymbols[Math.floor(Math.random() * trailSymbols.length)];
+        trail.src = trailSprites[Math.floor(Math.random() * trailSprites.length)];
+        trail.style.height= "35px"
+        trail.style.width= "35px"
         trail.style.left = e.clientX + 'px';
         trail.style.top = e.clientY + 'px';
         document.body.appendChild(trail);
         
-        setTimeout(() => trail.remove(), 1000);
+        setTimeout(() => trail.remove(), 5000000000);
       }
     });
 
     // Create floating doodles and margin notes
     function createFloatingDoodles() {
       const doodleBg = document.getElementById('doodleBg');
-      const doodles = ['⭐', '⚡', '🔧', '◊', '▲', '◯', '■', '★', '✦', '◈', '♦', '⋄', '✧', '◇'];
+      const doodles = [
+        'Sprites/laserBlue10-ezgif.com-resize.png',
+        'Sprites/laserRed08-ezgif.com-resize.png',
+        'Sprites/playerShip2_green-ezgif.com-resize.png',
+        'Sprites/starGold-ezgif.com-resize.png',
+        'Sprites/Scribbles/item_gun-ezgif.com-resize.png',
+        'Sprites/Scribbles/item_hat-ezgif.com-resize.png',
+        'Sprites/Scribbles/item_helmetModern-ezgif.com-resize.png',
+        'Sprites/Scribbles/item_pencil-ezgif.com-resize.png',
+        'Sprites/Scribbles/item_sword-ezgif.com-resize.png',
+        'Sprites/Scribbles/tile_cog-ezgif.com-resize.png'
+    ];
       const marginNotes = [
-        '→ solid!', '✓ works', 'nice!', '⚡ fast', '☕ fuel', 'optimize this',
-        'TODO: refactor', '// clean', 'good idea!', '⭐ epic', '✨ smooth', 'remember!'
+        '→ solid!', '✓ works', 'nice!', '⚡ fast', '☕fuel', 'optimize this',
+        'TODO: refactor', '// clean', 'good idea!', 'epic', 'smooth', 'remember!'
       ];
       
       // Floating doodles
-      for (let i = 0; i < 25; i++) {
-        const doodle = document.createElement('div');
-        doodle.className = 'floating-doodle';
-        doodle.textContent = doodles[Math.floor(Math.random() * doodles.length)];
+      for (let i = 0; i < 30; i++) {
+        const doodle = document.createElement('img');
+        doodle.className = 'floating-doodle'; 
+        doodle.src = doodles[Math.floor(Math.random() * doodles.length)];
         doodle.style.left = Math.random() * 100 + '%';
         doodle.style.top = Math.random() * 100 + '%';
         doodle.style.animationDelay = Math.random() * 8 + 's';
@@ -176,14 +200,14 @@
       }
       
       // Margin doodles
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 30; i++) {
         const margin = document.createElement('div');
         margin.className = 'margin-doodle';
         margin.textContent = marginNotes[Math.floor(Math.random() * marginNotes.length)];
         margin.style.setProperty('--delay', Math.random() * 4 + 's');
         
         // Position along edges
-        if (Math.random() < 0.5) {
+        if (Math.random() < 0.75) {
           margin.style.left = '10px';
           margin.style.top = Math.random() * 80 + 10 + '%';
         } else {
@@ -249,7 +273,7 @@
     const backgroundDoodles = [];
     const codeSnippets = [
       'console.log("brew");', 'if (caffeine) {', '}', 'function optimize()', 
-      '// FIXME', 'const power =', 'return true;', '☕', '⚡', '🔧'
+      '// FIXME', 'const power =', 'return true;', '☕', 'Sprites/Scribbles/item_pencil-ezgif.com-resize.png', 'Sprites/Scribbles/item_sword-ezgif.com-resize.png'
     ];
     
     for (let i = 0; i < 12; i++) {
@@ -408,7 +432,7 @@
         }
       }
       
-      // Debug wand when attacking
+      // Debug-wand when attacking
       if (developer.isDebugging) {
         ctx.strokeStyle = '#4682B4';
         ctx.lineWidth = 4;
@@ -534,7 +558,7 @@
       });
     }
 
-    // Enhanced UI with masculine hand-drawn style
+    // Enhanced UI hand-drawn style
     function drawProgressBar(entity, x, y, width, height, label, color) {
       const ratio = entity === developer ? entity.coffee / entity.maxCoffee : entity.hp / entity.maxHp;
       
@@ -590,7 +614,7 @@
         spell: ['console.debug()', 'optimize();', 'try{catch}', '// patched!'][Math.floor(Math.random() * 4)]
       });
       
-      // Encouraging messages with masculine tone
+      // Encouraging messages 
       const encouragements = [
         'Solid fix!', 'Clean code!', 'Optimized!', 'Performance boost!', 
         'Well architected!', 'Bug crushed!', 'System stable!', 'Flawless!'
@@ -608,14 +632,31 @@
         bug.hp = Math.max(0, bug.hp - 25);
         
         // impact effects 
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 50; i++) {
+          const sparkleSprites = [
+            'Sprites/laserBlue10-ezgif.com-resize.png',
+            'Sprites/laserRed08-ezgif.com-resize.png',
+            'Sprites/playerShip2_green-ezgif.com-resize.png',
+            'Sprites/starGold-ezgif.com-resize.png',
+            'Sprites/Scribbles/item_gun-ezgif.com-resize.png',
+            'Sprites/Scribbles/item_hat-ezgif.com-resize.png',
+            'Sprites/Scribbles/item_helmetModern-ezgif.com-resize.png',
+            'Sprites/Scribbles/item_pencil-ezgif.com-resize.png',
+            'Sprites/Scribbles/item_sword-ezgif.com-resize.png',
+            'Sprites/Scribbles/tile_cog-ezgif.com-resize.png'
+        ].map(src => {
+          const img = new Image();
+          img.src = src;
+          return img;
+        });
+          
           sparkles.push({
             x: bug.x + (Math.random() - 0.5) * 80,
             y: bug.y + (Math.random() - 0.5) * 80,
             vx: (Math.random() - 0.5) * 8,
             vy: (Math.random() - 0.5) * 8,
             life: 50,
-            symbol: ['⚡', '🔧', '💻', '⭐', '☕', '🛠'][Math.floor(Math.random() * 6)]
+            symbol:sparkleSprites[Math.floor(Math.random() * sparkleSprites.length)]
           });
         }
         
@@ -624,19 +665,40 @@
           gameWon = true;
           playVictorySound();
           
-          instruction.textContent = "System optimized! Welcome to my dev workspace! 🚀";
+          instruction.textContent = "System optimized! Welcome to my dev workspace!";
           createSpeechBubble(developer, "Perfect! Time for victory coffee!");
           
+
+
+
           // Massive victory celebration 
-          for (let i = 0; i < 30; i++) {
-            sparkles.push({
-              x: canvas.width / 2,
-              y: canvas.height / 2,
-              vx: (Math.random() - 0.5) * 15,
-              vy: (Math.random() - 0.5) * 15,
-              life: 120,
-              symbol: ['🎯', '⚡', '🔧', '⭐', '💻', '☕', '🚀'][Math.floor(Math.random() * 7)]
-            });
+          for (let i = 0; i < 100; i++) {
+            
+          const sparkleSprites = [
+              'Sprites/laserBlue10-ezgif.com-resize.png',
+              'Sprites/laserRed08-ezgif.com-resize.png',
+              'Sprites/playerShip2_green-ezgif.com-resize.png',
+              'Sprites/starGold-ezgif.com-resize.png',
+              'Sprites/Scribbles/item_gun-ezgif.com-resize.png',
+              'Sprites/Scribbles/item_hat-ezgif.com-resize.png',
+              'Sprites/Scribbles/item_helmetModern-ezgif.com-resize.png',
+              'Sprites/Scribbles/item_pencil-ezgif.com-resize.png',
+              'Sprites/Scribbles/item_sword-ezgif.com-resize.png',
+              'Sprites/Scribbles/tile_cog-ezgif.com-resize.png'
+          ].map(src => {
+            const img = new Image();
+            img.src = src;
+            return img;
+          });
+            
+          sparkles.push({
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            vx: (Math.random() - 0.5) * 15,
+            vy: (Math.random() - 0.5) * 15,
+            life: 120,
+            symbol:sparkleSprites[Math.floor(Math.random() * sparkleSprites.length)]
+          });
           }
           
           setTimeout(() => {
@@ -662,7 +724,7 @@
         const currentX = spell.x + (spell.targetX - spell.x) * spell.progress;
         const currentY = spell.y + (spell.targetY - spell.y) * spell.progress;
         
-        // Code trail effect with masculine blue
+        // Code trail effect
         ctx.font = '12px Courier New';
         ctx.fillStyle = `rgba(70, 130, 180, ${1 - spell.progress})`;
         for (let i = 0; i < 4; i++) {
@@ -688,14 +750,13 @@
         }
       });
       
-      // Sparkle effects with masculine symbols
+      // Sparkle effects with
       sparkles.forEach((sparkle, index) => {
         ctx.font = (12 + Math.random() * 8) + 'px sans-serif';
         ctx.globalAlpha = sparkle.life / 50;
-        ctx.fillStyle = '#4682B4';
-        ctx.textAlign = 'center';
-        ctx.fillText(sparkle.symbol, sparkle.x, sparkle.y);
-        
+        const size = 30
+        ctx.drawImage(sparkle.symbol, sparkle.x, sparkle.y, size, size)
+
         sparkle.x += sparkle.vx;
         sparkle.y += sparkle.vy;
         sparkle.vx *= 0.99; // air resistance
@@ -743,15 +804,15 @@
       drawProgressBar(developer, 40, 30, 120, 16, "Coffee Level", "#8B4513");
       drawProgressBar(bug, 450, 30, 120, 16, "Bug Persistence", "#CD5C5C");
       
-      // Game status with masculine styling
+      // Game status 
       if (!gameWon) {
         ctx.font = 'bold 16px Indie Flower';
         ctx.fillStyle = '#4682B4';
         ctx.strokeStyle = '#fff';
         ctx.lineWidth = 2;
         ctx.textAlign = 'center';
-        ctx.strokeText("My First Website: The Debug Chronicles!", canvas.width/2, canvas.height - 100);
-        ctx.fillText("My First Website: The Debug Chronicles!", canvas.width/2, canvas.height - 100);
+        ctx.strokeText("WebCard: The Debug Chronicles!", canvas.width/2, canvas.height - 100);
+        ctx.fillText("Webcard: The Debug Chronicles!", canvas.width/2, canvas.height - 100);
         
         ctx.font = '12px Caveat';
         ctx.fillStyle = '#666';
@@ -856,20 +917,20 @@
     // Enhanced coffee stain creation on page interaction
     let coffeeStainCount = 0;
     document.addEventListener('click', (e) => {
-      if (Math.random() < 0.1 && coffeeStainCount < 5) { // 10% chance, max 5 stains
+      if (Math.random() < 0.75 && coffeeStainCount < 50) { 
         const stain = document.createElement('div');
         stain.style.cssText = `
           position: fixed;
-          width: ${20 + Math.random() * 30}px;
-          height: ${18 + Math.random() * 25}px;
-          background: radial-gradient(circle, rgba(139, 69, 19, 0.2) 0%, rgba(139, 69, 19, 0.1) 60%, transparent 100%);
+          width: ${20 + Math.random() * 80}px;
+          height: ${18 + Math.random() * 75}px;
+          background: radial-gradient(circle, rgba(139, 69, 19, 0.2) 0%, rgba(139, 69, 19, 0.1) 60%, transparent 70%);
           border-radius: ${40 + Math.random() * 30}% ${60 + Math.random() * 20}% ${30 + Math.random() * 40}% ${50 + Math.random() * 30}%;
           pointer-events: none;
           z-index: -1;
           left: ${e.clientX - 15 + Math.random() * 30}px;
           top: ${e.clientY - 15 + Math.random() * 30}px;
           animation: gentle-float ${15 + Math.random() * 10}s ease-in-out infinite;
-          opacity: 0;
+          opacity: 1;
           transition: opacity 2s ease-in;
         `;
         
@@ -907,7 +968,7 @@
       }
     });
 
-    // Coffee break reminder (fun easter egg)
+    // Coffee break reminder easter egg
     let coffeeBreakTimer;
     function startCoffeeBreakReminder() {
       coffeeBreakTimer = setTimeout(() => {
@@ -951,7 +1012,7 @@
     // Start the coffee break reminder
     startCoffeeBreakReminder();
 
-    // Performance monitoring (dev joke)
+    // Performance monitoring
     let performanceCheckCount = 0;
     setInterval(() => {
       performanceCheckCount++;

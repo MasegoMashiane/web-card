@@ -51,17 +51,32 @@
   
   <div id="container">
     <div id="gameSection" class="sketchy-frame">
-      <div class="game-title">My First Website Adventure! 🎮</div>
+      <div class="game-title">Personal Web Card! 🎮</div>
       <canvas id="gameCanvas" width="650" height="400"></canvas>
       <div class="game-instructions">
-        <span id="instruction">Press SPACE to debug with coffee power! ☕✨</span>
+        <span id="instruction">Press SPACE to start debugging!</span>
       </div>
     </div>
 
     <!-- Speech Bubble -->
     <div class="speech-bubble" id="speechBubble">
       <div class="bubble-content">
-        <p>Click me to see sound shortcuts!</p>
+        <p id="bubble-text1">Click me to see sound shortcuts!</p> 
+        <style>
+          #bubble-text2{
+            margin: 0;
+            padding: 0;
+          }
+
+          #bubble-text2{
+            font-size: small;
+            margin: 0;
+            padding: 0;
+          }
+        </style>
+        <p id="bubble-text2">
+          Click anywhere else to leave coffee stains.
+        </p>
         <div class="bubble-arrow"></div>
       </div>
     </div>
