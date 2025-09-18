@@ -273,7 +273,7 @@
     const backgroundDoodles = [];
     const codeSnippets = [
       'console.log("brew");', 'if (caffeine) {', '}', 'function optimize()', 
-      '// FIXME', 'const power =', 'return true;', '☕', 'Sprites/Scribbles/item_pencil-ezgif.com-resize.png', 'Sprites/Scribbles/item_sword-ezgif.com-resize.png'
+      '// FIXME', 'const power =', 'return true;', '☕', 'while (awake) {', 'let bug =', 'debug();', '/* TODO */'
     ];
     
     for (let i = 0; i < 12; i++) {

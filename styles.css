@@ -9,6 +9,8 @@
       padding: 20px;
       min-width: 559.091px;
       min-height: 100vh;
+      resize: horizontal;
+      overflow: scroll;
       background: 
         radial-gradient(circle at 20% 50%, rgba(70, 130, 180, 0.2) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(105, 105, 105, 0.2) 0%, transparent 50%),
@@ -209,7 +211,7 @@
       height: 50px;
       background: #f8f9fa;
       border-radius: 50% 0 50% 50%;
-      box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1);
+      box-shadow: inset 2px 2px 1px rgba(0,0,0,0.1);
       transform: rotate(45deg);
     }
     
@@ -218,6 +220,8 @@
       background: transparent !important;
       border-radius: 15px;
       position: relative;
+      image-rendering: crisp-edges;
+      image-rendering: pixelated;
     }
     
     .game-title {
@@ -571,7 +575,7 @@
     pointer-events: none;
     display: block;
     animation: float 6s ease-in-out infinite;
-    max-width: 200px;
+    max-width: 300px;
     opacity: 0.65;
   }
   
@@ -654,7 +658,7 @@
       .speech-bubble {
         bottom: 3rem;
         left: 10rem;
-        max-width: 160px;
+        max-width: 3000px;
       }
 
       #Drawing{
